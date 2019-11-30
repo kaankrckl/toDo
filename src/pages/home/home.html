@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Todays Task's
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let item of items">
+              <ion-label>
+                  <h2>{{item.itemDescription}}</h2>
+                  <p>{{item.itemPriority}}</p>
+                </ion-label>
+          <ion-checkbox slot="end"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+      
+      <ion-fab bottom end (click)="load()">
+        <button ion-fab >
+          <ion-icon name="add"></ion-icon>
+        </button>
+        </ion-fab>
+
+</ion-content>

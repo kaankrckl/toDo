@@ -1,0 +1,52 @@
+<!--
+  Generated template for the AddItemPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>add-item</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+
+
+    
+
+    <!-- Textarea with custom number of rows and cols -->
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-textarea [(ngModel)]="itemDescription" placeholder="Enter a task here..."></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Due Date</ion-label>
+      <ion-datetime displayFormat="YYYY MM DD" placeholder="Select Date"></ion-datetime>
+    </ion-item>
+
+    <ion-list radio-group (ionChange)="onChange($event)">
+
+            <ion-label>Priority</ion-label>
+
+        <ion-item>
+            <ion-label>High</ion-label>
+            <ion-radio value="high"></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+            <ion-label>Moderate</ion-label>
+            <ion-radio checked="true" value="moderate"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Low</ion-label>
+            <ion-radio value="low"></ion-radio>
+        </ion-item>
+      </ion-list>
+      <button ion-button color="dark" (click)="addToDo()" start>Add</button>
+
+</ion-content>
