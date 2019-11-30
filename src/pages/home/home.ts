@@ -5,6 +5,7 @@ import { FunctionsProvider } from '../../providers/functions/functions';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/Rx'; 
 import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Rx';
 
 
 @Component({
@@ -13,6 +14,8 @@ import 'rxjs/add/operator/map';
 })
 export class HomePage {
   items:any = new Array<any>();
+  itemId:any;
+  data: Observable<any>;
 
   constructor(public navCtrl: NavController,
     private http: HttpClient,
@@ -27,6 +30,16 @@ export class HomePage {
     this.http.get('http://localhost/services/service.php').subscribe((response) => {
        this.items=response;
    }); 
+  }
+  delete(value) {
+    let postData = new FormData();
+    postData.append('itemId', value);
+    this.data = this.http.post("http://localhost/services/deletetodo.php", postData);
+    this.data.subscribe(data =>{
+      console.log(data);
+    });
+    console.log(value);
+
   }
   load(){
     this.navCtrl.push(AddItemPage);

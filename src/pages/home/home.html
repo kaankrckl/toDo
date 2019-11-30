@@ -8,13 +8,21 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-item *ngFor="let item of items">
+      <ion-item-sliding *ngFor="let item of items">
+        <ion-item >
               <ion-label>
                   <h2>{{item.itemDescription}}</h2>
                   <p>{{item.itemPriority}}</p>
                 </ion-label>
           <ion-checkbox slot="end"></ion-checkbox>
         </ion-item>
+        <ion-item-options side="right">
+            <button ion-button color="danger" (click)="delete(item.itemId)">
+              <ion-icon name="trash"></ion-icon>
+              &nbsp;&nbsp;Sil&nbsp;&nbsp;
+            </button>
+        </ion-item-options>
+      </ion-item-sliding>
       </ion-list>
       
       <ion-fab bottom end (click)="load()">
