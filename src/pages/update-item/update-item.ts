@@ -22,6 +22,9 @@ export class UpdateItemPage {
   data: Observable<any>;
   item:any = new Array<any>();;
   itemId: any;
+  itemDescription: any;
+  itemDueDate: any;
+  itemPriority: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private http: HttpClient,
     public functions: FunctionsProvider) {
@@ -41,12 +44,6 @@ export class UpdateItemPage {
     //console.log('ionViewDidLoad UpdateItemPage');
   }
   getToDo(){
- /*    this.http.get('http://localhost/services/gettodo.php').subscribe((response) => {
-       this.item=response;
-   }); 
- */
-
- //  let postData = new FormData();
  let postData = new FormData();
  postData.append('itemId', this.itemId);
  this.data = this.http.post("http://localhost/services/gettodo.php", postData);
@@ -54,6 +51,23 @@ export class UpdateItemPage {
    this.item=data;
    console.log("GELEN VERİ "+data);
  });
+
+  }
+  onChange(value){
+    console.log(value);
+    this.itemPriority = value;
+  }
+  updateToDo(a){
+    console.log(a);
+    let postmanData = new FormData();
+    postmanData.append('itemDescription', a);
+    postmanData.append('itemPriority', 'Low');
+    //postData.append('itemId', '30');
+    this.data =this.http.post("http://localhost/services/updatetodo.php", postmanData);
+   this.data.subscribe(data =>{
+    console.log("GELEN VERİ "+data);
+  });
+
 
   }
   
