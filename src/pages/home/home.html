@@ -12,7 +12,7 @@
         <ion-item >
               <ion-label>
                   <h2>{{item.itemDescription}}</h2>
-                  <p>{{item.itemPriority}}</p>
+                  <p>Priority: {{item.itemPriority}}</p>
                 </ion-label>
           <ion-checkbox slot="end"></ion-checkbox>
         </ion-item>
@@ -20,6 +20,13 @@
             <button ion-button color="danger" (click)="delete(item.itemId)">
               <ion-icon name="trash"></ion-icon>
               &nbsp;&nbsp;Sil&nbsp;&nbsp;
+            </button>
+        </ion-item-options>
+
+        <ion-item-options side="left">
+            <button ion-button color="primary" (click)="update(item.itemId)">
+              <ion-icon name="clipboard"></ion-icon>
+              &nbsp;&nbsp;Update {{item.itemId}}&nbsp;&nbsp;
             </button>
         </ion-item-options>
       </ion-item-sliding>

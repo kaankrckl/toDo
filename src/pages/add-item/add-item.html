@@ -23,10 +23,10 @@
       <ion-textarea [(ngModel)]="itemDescription" placeholder="Enter a task here..."></ion-textarea>
     </ion-item>
 
-    <ion-item>
+ <!--    <ion-item>
       <ion-label>Due Date</ion-label>
       <ion-datetime displayFormat="YYYY MM DD" placeholder="Select Date"></ion-datetime>
-    </ion-item>
+    </ion-item> -->
 
     <ion-list radio-group (ionChange)="onChange($event)">
 
@@ -34,17 +34,17 @@
 
         <ion-item>
             <ion-label>High</ion-label>
-            <ion-radio value="high"></ion-radio>
+            <ion-radio value="High"></ion-radio>
         </ion-item>
     
         <ion-item>
             <ion-label>Moderate</ion-label>
-            <ion-radio checked="true" value="moderate"></ion-radio>
+            <ion-radio checked="true" value="Moderate"></ion-radio>
         </ion-item>
 
         <ion-item>
             <ion-label>Low</ion-label>
-            <ion-radio value="low"></ion-radio>
+            <ion-radio value="Low"></ion-radio>
         </ion-item>
       </ion-list>
       <button ion-button color="dark" (click)="addToDo()" start>Add</button>

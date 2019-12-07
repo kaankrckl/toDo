@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AddItemPage } from '../pages/add-item/add-item';
+import { UpdateItemPage } from '../pages/update-item/update-item';
 import { FunctionsProvider } from '../providers/functions/functions';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    AddItemPage
+    AddItemPage,
+    UpdateItemPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { FunctionsProvider } from '../providers/functions/functions';
   entryComponents: [
     MyApp,
     HomePage,
-    AddItemPage
+    AddItemPage,
+    UpdateItemPage
   ],
   providers: [
     StatusBar,
