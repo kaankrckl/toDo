@@ -20,7 +20,7 @@
     <!-- Textarea with custom number of rows and cols -->
     <ion-item *ngFor="let item of item">
         <ion-label>Description</ion-label>
-        <ion-textarea [(ngModel)]="itemDescription" placeholder="{{item.itemDescription}}"></ion-textarea>
+        <ion-textarea [(ngModel)]="itemDescription"  value="{{item.itemDescription}}"></ion-textarea>
       </ion-item>
   
 <!--       <ion-item>
@@ -31,21 +31,47 @@
       <ion-list radio-group (ionChange)="onChange($event)">
   
               <ion-label>Priority</ion-label>
-  
-          <ion-item>
-              <ion-label>High</ion-label>
-              <ion-radio value="High"></ion-radio>
-          </ion-item>
+
+              <div *ngIf="itemPriority == 'High'">
+                <ion-item>
+                    <ion-label>High</ion-label>
+                    <ion-radio  checked="true" value="High"></ion-radio>
+                </ion-item>
+             </div>
+             <div *ngIf="itemPriority !== 'High'">
+              <ion-item>
+                  <ion-label>High</ion-label>
+                  <ion-radio  value="High"></ion-radio>
+              </ion-item>
+           </div>
       
+
+           <div *ngIf="itemPriority == 'Moderate'">
+            <ion-item>
+                <ion-label>Moderate</ion-label>
+                <ion-radio  checked="true" value="Moderate"></ion-radio>
+            </ion-item>
+         </div>
+         <div *ngIf="itemPriority !== 'Moderate'">
           <ion-item>
               <ion-label>Moderate</ion-label>
-              <ion-radio checked="true" value="Moderate"></ion-radio>
+              <ion-radio  value="Moderate"></ion-radio>
           </ion-item>
-  
-          <ion-item>
-              <ion-label>Low</ion-label>
-              <ion-radio value="Low"></ion-radio>
-          </ion-item>
+       </div>
+
+       <div *ngIf="itemPriority === 'Low'">
+        <ion-item>
+            <ion-label>Low</ion-label>
+            <ion-radio  checked="true" value="Low"></ion-radio>
+        </ion-item>
+     </div>
+     <div *ngIf="itemPriority !== 'Low'">
+      <ion-item>
+          <ion-label>Low</ion-label>
+          <ion-radio  value="Low"></ion-radio>
+      </ion-item>
+   </div>
+
         </ion-list>
-        <button  ion-button color="dark" (click)="updateToDo(itemDescription)" start>Update</button>
+        <button ion-button color="dark" (click)="updateToDo(itemDescription)" start>Update</button>
 </ion-content>

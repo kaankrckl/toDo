@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FunctionsProvider } from '../../providers/functions/functions';
 import { HttpClient } from '@angular/common/http';
+import { HomePage } from '../home/home';
 import 'rxjs/Rx'; 
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Rx';
@@ -30,6 +31,7 @@ export class UpdateItemPage {
     public functions: FunctionsProvider) {
    //console.log("ID BU " + navParams.get('value'));
    this.itemId = navParams.get('value');
+   this.itemPriority="Moderate";
    
   }
   ionViewWillEnter(){
@@ -50,6 +52,8 @@ export class UpdateItemPage {
  this.data.subscribe(data =>{
    this.item=data;
    console.log("GELEN VERİ "+data);
+   
+   this.itemPriority=this.item[0].itemPriority;
  });
 
   }
@@ -58,18 +62,20 @@ export class UpdateItemPage {
     this.itemPriority = value;
   }
   updateToDo(a){
-    console.log(a);
+    console.log(this.itemPriority);
     let postmanData = new FormData();
     postmanData.append('itemDescription', a);
-    postmanData.append('itemPriority', 'Low');
-    //postData.append('itemId', '30');
+    postmanData.append('itemPriority', this.itemPriority);
+    postmanData.append('itemId', this.itemId);
     this.data =this.http.post("http://localhost/services/updatetodo.php", postmanData);
    this.data.subscribe(data =>{
     console.log("GELEN VERİ "+data);
   });
-
+  this.load();
 
   }
-  
+  load(){
+    this.navCtrl.push(HomePage);
+  }
 
 }
