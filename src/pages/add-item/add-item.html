@@ -5,8 +5,10 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>add-item</ion-title>
+  <ion-navbar color="myPurple">
+    <ion-title>
+        <span class="title"> Add Task </span>
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -47,6 +49,6 @@
             <ion-radio value="Low"></ion-radio>
         </ion-item>
       </ion-list>
-      <button ion-button color="dark" (click)="addToDo()" start>Add</button>
+      <button block ion-button color="myPurple" (click)="addToDo()" start>Add</button>
 
 </ion-content>

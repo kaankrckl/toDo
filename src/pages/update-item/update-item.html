@@ -5,8 +5,10 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>update-item</ion-title>
+  <ion-navbar color="myPurple">
+      <ion-title>
+          <span class="title"> Update Task </span>
+      </ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -73,5 +75,5 @@
    </div>
 
         </ion-list>
-        <button ion-button color="dark" (click)="updateToDo(itemDescription)" start>Update</button>
+        <button block ion-button color="dark" (click)="updateToDo(itemDescription)" start>Update</button>
 </ion-content>

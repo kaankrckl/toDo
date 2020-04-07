@@ -1,14 +1,14 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Todays Task's
-    </ion-title>
+  <ion-navbar color="myPurple">
+      <ion-title>
+          <span class="title"> Todays Tasks </span>
+      </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="main">
     <ion-list>
-      <ion-item-sliding *ngFor="let item of items">
+      <ion-item-sliding  class="my-list" *ngFor="let item of items">
         <ion-item >
               <ion-label>
                   <h2>{{item.itemDescription}}</h2>
@@ -19,22 +19,22 @@
         <ion-item-options side="right">
             <button ion-button color="danger" (click)="delete(item.itemId)">
               <ion-icon name="trash"></ion-icon>
-              &nbsp;&nbsp;Sil&nbsp;&nbsp;
+              &nbsp;&nbsp;Delete&nbsp;&nbsp;
             </button>
         </ion-item-options>
 
         <ion-item-options side="left">
             <button ion-button color="primary" (click)="update(item.itemId)">
               <ion-icon name="clipboard"></ion-icon>
-              &nbsp;&nbsp;Update {{item.itemId}}&nbsp;&nbsp;
+              &nbsp;&nbsp;Update&nbsp;&nbsp;
             </button>
         </ion-item-options>
       </ion-item-sliding>
       </ion-list>
       
       <ion-fab bottom end (click)="load()">
-        <button ion-fab >
-          <ion-icon name="add"></ion-icon>
+        <button color="myPurple" ion-fab >
+          <ion-icon color="myPink" name="add"></ion-icon>
         </button>
         </ion-fab>
 
